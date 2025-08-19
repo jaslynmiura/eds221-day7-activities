@@ -6,6 +6,15 @@ format: html
 
 ```{r}
 
+library(tidyverse)
+library(lubridate)
+library(dplyr)
+
+```
+
+
+```{r}
+
 alarm_report <- data.frame(
   stringsAsFactors = FALSE,
               date = c("2020-03-14", "2020-03-15", "2020-04-10", "2020-04-18"),
@@ -23,7 +32,7 @@ alarm_report <- data.frame(
 
 # task 3
 
-alarm_report %>% 
+task3 <- alarm_report %>% 
   mutate(building = str_replace(building, pattern = "Engineering", replacement = "Engr")) %>% 
   separate(col = building, 
            into = c("building", "wing"),
